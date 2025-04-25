@@ -5,19 +5,25 @@ import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 
 import java.util.Scanner;
 
-
 public class Main {
     private static boolean flag = true;
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         // реализуйте алгоритм здесь
+
         while (flag) {
             System.out.println("Выберите вариант работы: " +
                     "\n1) Работа через JDBC." +
                     "\n2) Работа через Hibernate.");
 
-            int input = scanner.nextInt();
+            int input = 0;
+            try {
+                input = scanner.nextInt();
+            } catch (Exception e) {
+                System.err.println("Введён неверный параметр, перезапустите программу");
+                return;
+            }
 
             if (input == 1) {
                 while (flag) {
